@@ -9,23 +9,18 @@ namespace UI_Tests
     {
         public void ValidLogin(IWebDriver driver, string username, string password)
         {
-            By signinBtn = By.XPath("//button[contains(text(),'Sign In')]");
-            By hrImmigrationBtn = By.XPath("//a[@href='/account/login']");
-            By inputEmail = By.XPath("//input[contains(@placeholder,'Email')]");
-            By inputPassword = By.XPath("//input[contains(@placeholder,'Password')]");
-            By submitBtn = By.XPath("//button[normalize-space()='Sign in']");
-            By signoutBtn = By.XPath("//label[normalize-space()='Sign Out']");
-
+            LoginPage loginPage = new LoginPage(driver);
             Actions actions = new Actions(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
-            driver.Navigate().GoToUrl(LoginTest_TestData.Login_URL);
-            actions.MoveToElement(driver.FindElement(signinBtn)).Perform();
-            driver.FindElement(hrImmigrationBtn).Click();
-            wait.Until(ExpectedConditions.ElementIsVisible(inputEmail));
-            driver.FindElement(inputEmail).SendKeys(username);
-            driver.FindElement(inputPassword).SendKeys(password);
-            driver.FindElement(submitBtn).Click();
-            wait.Until(ExpectedConditions.ElementIsVisible(signoutBtn));
+
+            driver.Navigate().GoToUrl(URLs.Login_URL);
+            actions.MoveToElement(driver.FindElement(loginPage.signinBtn)).Perform();
+            driver.FindElement(loginPage.hrImmigrationBtn).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(loginPage.inputEmail));
+            driver.FindElement(loginPage.inputEmail).SendKeys(username);
+            driver.FindElement(loginPage.inputPassword).SendKeys(password);
+            driver.FindElement(loginPage.submitBtn).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(loginPage.signoutBtn));
         }
     }
 }
