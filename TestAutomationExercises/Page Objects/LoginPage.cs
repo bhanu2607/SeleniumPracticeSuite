@@ -21,5 +21,7 @@ namespace UI_Tests
         public By submitBtn = By.XPath("//button[normalize-space()='Sign in']");
         public By signoutBtn = By.XPath("//label[normalize-space()='Sign Out']");
 
+        
+
     }
 }

@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 namespace UI_Tests
 {
     [TestFixture]
-    public class LoginTest
+    public class OnBoardTest
     {
         private IWebDriver driver;
         [Test]
-        public void LoginTest_Automation()
+        public void OnBoard_Automation()
         {
             AuthHelper authHelper = new AuthHelper();
 
-            CandidateDetails detailsObj = new CandidateDetails( firstName: "Rajesh" , lastName:"Sudaveni" , designation: "Developer Intern", email:"rajesh@example.com" , phoneNumber:"8332839112" , employmentType:"Intern", taxTerm: "C2C" );
+            CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudhaveni", designation: "Developer Intern", email: "rajesh@example.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C");
 
-            authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password  );
+            authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
 
-            authHelper.EnterDetails(driver , detailsObj );
+            authHelper.EnterDetails(driver, detailsObj);
         }
 
         [SetUp]
