@@ -9,10 +9,7 @@ namespace UI_Tests
         public LoginPage(IWebDriver driver)
         {
             this.driver = driver;
-            #region InitElements: Open to Read
-            //PageFactory.InitElements(driver, this);
-            //use this for elements with [FindsBy()] method which would not require "driver.FindElement" to be written for each element instead the elements will be initialized when the constructor is called
-            #endregion
+         
         }
         public By signinBtn = By.XPath("//button[contains(text(),'Sign In')]");
         public By hrImmigrationBtn = By.XPath("//a[@href='/account/login']");
