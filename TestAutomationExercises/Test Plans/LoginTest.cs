@@ -1,11 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UI_Tests
 {
@@ -17,9 +12,16 @@ namespace UI_Tests
         public void LoginTest_Automation()
         {
             AuthHelper authHelper = new AuthHelper();
+            OnboardClass onboardclass = new OnboardClass();
+
+            EmployeeDetail e = new EmployeeDetail(fn: "Divya", ln: "y ", job: "developer", mail_id: "duh@gmail.com", pn: "9674325212", employmentType: "fulltime", taxTerm: "w2");
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
+            onboardclass.Onboard(driver, e);
+
+
         }
+
 
         [SetUp]
         public void Setup()
