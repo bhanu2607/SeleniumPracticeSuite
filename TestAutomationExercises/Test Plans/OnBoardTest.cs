@@ -15,14 +15,19 @@ namespace UI_Tests
         private IWebDriver driver;
         [Test]
         public void OnBoard_Automation()
+
+
         {
             AuthHelper authHelper = new AuthHelper();
 
-            CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudhaveni", designation: "Developer Intern", email: "rajesh@example.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C");
+            OnBoardHelper onBoardHelper = new OnBoardHelper();
+
+
+            CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudhaveni", designation: "Developer Intern", email: "rajesh@example1.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C" , contractDate: "01/12/2023");
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
 
-            authHelper.EnterDetails(driver, detailsObj);
+            onBoardHelper.EnterDetails(driver, detailsObj);
         }
 
         [SetUp]

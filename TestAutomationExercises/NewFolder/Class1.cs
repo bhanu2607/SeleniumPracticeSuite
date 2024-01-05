@@ -15,8 +15,9 @@ namespace UI_Tests
         public string EmploymentType { get; set; }
         public string TaxTerm { get; set; }
         public string DOB { get; set; }
+        public string ContractDate { get; set; }
 
-        public CandidateDetails(string firstName, string lastName, string designation, string email, string phoneNumber, string employmentType, string taxTerm, [Optional] string dob)
+        public CandidateDetails(string firstName, string lastName, string designation, string email, string phoneNumber, string employmentType, string taxTerm, [Optional] string contractDate )
         {
             FirstName = firstName;
             LastName = lastName;
@@ -25,7 +26,7 @@ namespace UI_Tests
             PhoneNumber = phoneNumber;
             EmploymentType = employmentType;
             TaxTerm = taxTerm;
-            DOB = dob;
+            ContractDate = contractDate;
         }
 
 

@@ -10,18 +10,22 @@ using System.Threading.Tasks;
 namespace UI_Tests
 {
     [TestFixture]
-    public class LoginTest
+    public class CheckWorkForceTest
     {
         private IWebDriver driver;
         [Test]
         public void LoginTest_Automation()
         {
             AuthHelper authHelper = new AuthHelper();
+
+            CheckWorkForceHelper checkWorkForceHelper = new CheckWorkForceHelper();
+
             CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudaveni", designation: "Developer Intern", email: "rajesh@example.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C", contractDate: "07/01/2001");
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password  );
 
-            
+            checkWorkForceHelper.CheckWorkForce(driver, detailsObj.Email);
+
 
             
         }
@@ -41,3 +45,4 @@ namespace UI_Tests
         }
     }
 }
+
