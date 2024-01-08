@@ -9,14 +9,14 @@ namespace UI_Tests
     {
         private IWebDriver driver;
         [Test]
-        public void searchtest_automation()
+        public void Searchtest_automation()
         {
             AuthHelper authHelper = new AuthHelper();
-            searchclass searchcls = new searchclass();
-            mailsearch m = new mailsearch(emaildup: "dsjdj@gmail");
 
-        authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
-            searchcls.search(driver, m);
+            SearchClass searchcls = new SearchClass();
+
+            authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
+            searchcls.Search(driver, "dhkk@gil.com");
 
 
         }

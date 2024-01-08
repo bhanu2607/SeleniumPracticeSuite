@@ -24,14 +24,6 @@ namespace UI_Tests
             wait.Until(ExpectedConditions.ElementIsVisible(onbp.signoutBtn));
 
 
-            wait.Until(ExpectedConditions.ElementIsVisible(onbp.onBoardBtn));
-            driver.FindElement(onbp.onBoardBtn).Click();
-
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[normalize-space()='Single']")));
-            driver.FindElement(By.XPath("//span[normalize-space()='Single']")).Click();
-
-
-
         }
         
 

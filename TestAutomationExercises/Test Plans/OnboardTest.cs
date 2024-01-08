@@ -13,11 +13,11 @@ namespace UI_Tests
         {
             AuthHelper authHelper = new AuthHelper();
             OnboardClass onboardclass = new OnboardClass();
-
-            EmployeeDetail e = new EmployeeDetail(fn: "Div", ln: "y ", job: "developer", mail_id: "dh@gil.com", pn: "9674325232", employmentType: "Full-Time", taxTerm: "C2C");
+            SearchClass searchClass = new SearchClass();
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
-            onboardclass.Onboard(driver, e);
+            searchClass.Search(driver, OnboardTest_TestData.e.Email);
+            onboardclass.Onboard(driver, OnboardTest_TestData.e);
 
 
         }

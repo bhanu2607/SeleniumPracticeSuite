@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System.Runtime.InteropServices;
 
 namespace UI_Tests
@@ -10,6 +11,15 @@ namespace UI_Tests
         {
             OnboardPage onboardPage = new OnboardPage(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
+            wait.Until(ExpectedConditions.ElementIsVisible(onboardPage.dashboardbtn));
+            driver.FindElement(onboardPage.dashboardbtn).Click();
+
+            wait.Until(ExpectedConditions.ElementIsVisible(onboardPage.onBoardBtn));
+            driver.FindElement(onboardPage.onBoardBtn).Click();
+
+            wait.Until(ExpectedConditions.ElementIsVisible(onboardPage.single));
+            driver.FindElement(onboardPage.single).Click();
+
 
             driver.FindElement(onboardPage.firstname).SendKeys(employeeDetail.FirstName);
             driver.FindElement(onboardPage.lastname).SendKeys(employeeDetail.LastName);
@@ -20,10 +30,13 @@ namespace UI_Tests
             selectEmpType.SelectByText(employeeDetail.EmploymentType);
             SelectElement selecttax = new SelectElement(driver.FindElement(onboardPage.taxterm));
             selecttax.SelectByText(employeeDetail.TaxTerm);
-            driver.FindElement(By.XPath("//label[contains(normalize-space(),'Contract Start Date')]/following-sibling::div/input")).SendKeys(Keys.Control + "A" + Keys.Backspace);
-            driver.FindElement(By.XPath("//label[contains(normalize-space(),'Contract Start Date')]/following-sibling::div/input")).SendKeys(employeeDetail.ConDate);
+            driver.FindElement(onboardPage.consdate).SendKeys(Keys.Control + "A" + Keys.Backspace);
+            driver.FindElement(onboardPage.consdate).SendKeys(employeeDetail.ConDate);
 
-            driver.FindElement(By.XPath("//button[normalize-space()='Onboard']")).Click();
+            driver.FindElement(onboardPage.onboardbtn).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(onboardPage.successpage));
+
+
 
         }
     }
@@ -37,20 +50,7 @@ namespace UI_Tests
         public string EmploymentType { get; set; }
         public string TaxTerm { get; set; }
          public string ConDate { get; set; }
-        //  public string Gender { get; set; }
-        //public string Address1 { get; set; }
-        //public string Address2 { get; set; }
-        //public string City { get; set; }
-        //public string Zipcode { get; set; }
-
-        //public string Empdate { get; set; }
-        //public string EmpID { get; set; }
-        //public string CurrWorktype { get; set; }
-        //public string Billstatus { get; set; }
-        //public string Wagerate { get; set; }
-        //public string Wagecycle { get; set; }
-        //public string Department { get; set; }
-        //public string Reportingto { get; set; }
+    
 
 
     public EmployeeDetail(string fn, string ln, string job, string mail_id,  string pn, string employmentType, string taxTerm,string condate="19/01/2020")
@@ -63,18 +63,7 @@ namespace UI_Tests
          EmploymentType = employmentType;
             TaxTerm = taxTerm;
             ConDate = condate;
-         //   DateOfBirth = BirthDate;
-         //   Address2 = address2;
-            //City = city;
-            //Zipcode = zipcode;
-            //Empdate = empdate;
-            //EmpID = empID;
-            //CurrWorktype = currWorktype;
-            //Billstatus = billstatus;
-            //Wagerate = wagerate;
-            //Wagecycle = wagecycle;
-            //Department = department;
-            //Reportingto = reportingto;
+         
         }
     }
 }

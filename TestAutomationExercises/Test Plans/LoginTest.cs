@@ -12,10 +12,7 @@ namespace UI_Tests
         public void LoginTest_Automation()
         {
             AuthHelper authHelper = new AuthHelper();
-
-
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
-
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V117.DOM;
 using SeleniumExtras.PageObjects;
 
 namespace UI_Tests
@@ -28,15 +29,17 @@ namespace UI_Tests
 
         public By email = By.XPath("//label[contains(.,'Email ID*')]/following-sibling::div/input[@type='text']");
         public By phonenum = By.XPath("//label[contains(.,'Phone Number*')]/following-sibling::div/input[@type]");
-       // public By DOB = By.XPath("//label[contains(.,'Date Of Birth')]/following-sibling::div/input[@type]");
-      //  public By male = By.XPath("//label[contains(.,'Male')]");
-        //public By city = By.XPath("//label[contains(.,'City, State')]/following-sibling::div/select");
-        //public By available = By.XPath("//label[contains(.,'Not Available')]");
+       
         public By employeetype = By.XPath("//label[contains(.,'Employment Type*')]/following-sibling::div/select");
-       // public By intern = By.XPath("//li[.='Intern']");
+      
         public By taxterm = By.XPath("//label[.='Tax Terms*']/following-sibling::div/select");
-       // public By w2 = By.XPath("//li[.='W2']");
         
+        public By consdate = By.XPath("//label[contains(normalize-space(),'Contract Start Date')]/following-sibling::div/input");
+        public By onboardbtn = By.XPath("//button[normalize-space()='Onboard']");
+        public By single = By.XPath("//span[normalize-space()='Single']");
+        public By successpage = By.XPath("//h3[.='Candidate successfully Onboarded']");
+       public By dashboardbtn=By.XPath("//span[@class='nav-icon ob__Img ob-dashboard__Img']")'
+
 
     }
 }
