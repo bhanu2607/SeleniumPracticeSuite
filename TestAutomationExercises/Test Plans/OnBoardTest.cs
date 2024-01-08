@@ -1,11 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UI_Tests
 {
@@ -22,10 +17,14 @@ namespace UI_Tests
 
             OnBoardHelper onBoardHelper = new OnBoardHelper();
 
+            CheckWorkForceHelper checkWorkForceHelper = new CheckWorkForceHelper();
+
 
             CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudhaveni", designation: "Developer Intern", email: "rajesh@example1.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C" , contractDate: "01/12/2023");
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
+
+            checkWorkForceHelper.CheckWorkForce(driver, detailsObj.Email);
 
             onBoardHelper.EnterDetails(driver, detailsObj);
         }

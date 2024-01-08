@@ -20,7 +20,7 @@ namespace UI_Tests
 
             CheckWorkForceHelper checkWorkForceHelper = new CheckWorkForceHelper();
 
-            CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudaveni", designation: "Developer Intern", email: "rajesh@example.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C", contractDate: "07/01/2001");
+            CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudaveni", designation: "Developer Intern", email: "rajesh@example1.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C", contractDate: "07/01/2001");
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password  );
 

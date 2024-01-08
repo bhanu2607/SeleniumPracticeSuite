@@ -12,7 +12,9 @@ namespace UI_Tests
         public void CheckWorkForce(IWebDriver driver, string email)
         {
             WorkForcePage workForcePage = new WorkForcePage(driver);
+            
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
+            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             driver.FindElement(workForcePage.workForceBtn).Click();
 
@@ -21,14 +23,24 @@ namespace UI_Tests
             driver.FindElement(workForcePage.searchInputEle).SendKeys(email);
             driver.FindElement(workForcePage.searchBtn).Click();
 
-            wait.Until(ExpectedConditions.ElementIsVisible(workForcePage.nameEle));
+            try
+            {
+                wait1.Until(ExpectedConditions.ElementIsVisible(workForcePage.nameEle));
 
 
-            SelectElement selectDeleteRecord = new SelectElement(driver.FindElement(workForcePage.actionBtn));
-            selectDeleteRecord.SelectByText("Delete Record");
+                driver.FindElement(workForcePage.actionBtn).Click();
+                driver.FindElement(workForcePage.deleteRecordEle).Click();
+
+                wait.Until(ExpectedConditions.ElementIsVisible(workForcePage.finalEle));
+
+                driver.FindElement(workForcePage.deleteBtn).Click();
 
 
-            wait.Until(ExpectedConditions.ElementIsVisible(workForcePage.finalEle));
+            }
+            catch (NoSuchElementException)
+            {
+                driver.FindElement(workForcePage.notFoundEle);
+            }            
 
         }
 
