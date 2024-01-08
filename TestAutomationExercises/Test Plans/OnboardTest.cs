@@ -13,9 +13,14 @@ namespace UI_Tests
         {
             AuthHelper authHelper = new AuthHelper();
             OnboardClass onboardClass = new OnboardClass( );
+            EmailCheck email_check = new EmailCheck();
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
             onboardClass.Onboard(driver, OnboardTest_TestData.employeeDetail);
+            email_check.Emailvalid(driver, "bhanukri@gmail.com");
+
+
+
         }
 
         [SetUp]

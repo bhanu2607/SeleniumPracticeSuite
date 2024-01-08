@@ -1,10 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace UI_Tests
+﻿namespace UI_Tests
 {
     public class OnboardTest_TestData
     {
-        public static string FirstName = "Bhn";
+        public static string FirstName = "Bhn"; 
         public static string LastName = "Krishna";
         public static string Email = "bhankri@gmail.com";
         public static string PhoneNumber = "9014433233";
@@ -13,7 +11,7 @@ namespace UI_Tests
         public static string emtype = "Full-Time";
         public static string taxterm ="C2C";
         public static string start_Date = "09/03/2022";
-        public static string emailid = "bhanukrishna@gmail.com";
+        public static string emailid = "bhanukri@gmail.com";
        
 
        

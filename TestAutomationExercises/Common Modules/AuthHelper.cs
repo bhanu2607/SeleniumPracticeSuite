@@ -22,11 +22,6 @@ namespace UI_Tests
             driver.FindElement(loginPage.submitBtn).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(loginPage.signoutBtn));
         }
-        public void emailcheck(IWebDriver driver, string email)
-        {
-            emailpage Emailpage = new emailpage(driver);
-            driver.FindElement(Emailpage.Work_Force).Click();
-
-        }
+        
     }
 }
