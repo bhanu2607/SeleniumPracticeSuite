@@ -12,7 +12,7 @@ namespace UI_Tests
         {
             OnboardPage onbp = new OnboardPage(driver);
             Actions actions = new Actions(driver);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(70));
 
             driver.Navigate().GoToUrl(URLs.Login_URL);
             actions.MoveToElement(driver.FindElement(onbp.signinBtn)).Perform();

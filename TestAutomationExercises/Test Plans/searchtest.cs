@@ -5,21 +5,23 @@ using OpenQA.Selenium.Chrome;
 namespace UI_Tests
 {
     [TestFixture]
-    public class LoginTest
+    public class searchtest
     {
         private IWebDriver driver;
         [Test]
-        public void LoginTest_Automation()
+        public void searchtest_automation()
         {
             AuthHelper authHelper = new AuthHelper();
+            searchclass searchcls = new searchclass();
+            mailsearch m = new mailsearch(emaildup: "dsjdj@gmail");
 
-
-            authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
+        authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
+            searchcls.search(driver, m);
 
 
         }
 
-
+       
         [SetUp]
         public void Setup()
         {

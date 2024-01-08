@@ -28,12 +28,15 @@ namespace UI_Tests
 
         public By email = By.XPath("//label[contains(.,'Email ID*')]/following-sibling::div/input[@type='text']");
         public By phonenum = By.XPath("//label[contains(.,'Phone Number*')]/following-sibling::div/input[@type]");
-        public By DOB = By.XPath("//label[contains(.,'Date Of Birth')]/following-sibling::div/input[@type]");
-        public By male = By.XPath("//label[contains(.,'Male')]");
-        public By city = By.XPath("//label[contains(.,'City, State')]/following-sibling::div/select");
-        public By available = By.XPath("//label[contains(.,'Not Available')]");
-        public By employeetype = By.XPath("//label[contains(.,'Employment Type*')]/following-sibling::div/span");
-
+       // public By DOB = By.XPath("//label[contains(.,'Date Of Birth')]/following-sibling::div/input[@type]");
+      //  public By male = By.XPath("//label[contains(.,'Male')]");
+        //public By city = By.XPath("//label[contains(.,'City, State')]/following-sibling::div/select");
+        //public By available = By.XPath("//label[contains(.,'Not Available')]");
+        public By employeetype = By.XPath("//label[contains(.,'Employment Type*')]/following-sibling::div/select");
+       // public By intern = By.XPath("//li[.='Intern']");
+        public By taxterm = By.XPath("//label[.='Tax Terms*']/following-sibling::div/select");
+       // public By w2 = By.XPath("//li[.='W2']");
+        
 
     }
 }

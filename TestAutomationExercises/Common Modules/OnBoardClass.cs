@@ -16,6 +16,15 @@ namespace UI_Tests
             driver.FindElement(onboardPage.email).SendKeys(employeeDetail.Email);
             driver.FindElement(onboardPage.designation).SendKeys(employeeDetail.Designation);
             driver.FindElement(onboardPage.phonenum).SendKeys(employeeDetail.PhoneNumber);
+            SelectElement selectEmpType = new SelectElement(driver.FindElement(onboardPage.employeetype));
+            selectEmpType.SelectByText(employeeDetail.EmploymentType);
+            SelectElement selecttax = new SelectElement(driver.FindElement(onboardPage.taxterm));
+            selecttax.SelectByText(employeeDetail.TaxTerm);
+            driver.FindElement(By.XPath("//label[contains(normalize-space(),'Contract Start Date')]/following-sibling::div/input")).SendKeys(Keys.Control + "A" + Keys.Backspace);
+            driver.FindElement(By.XPath("//label[contains(normalize-space(),'Contract Start Date')]/following-sibling::div/input")).SendKeys(employeeDetail.ConDate);
+
+            driver.FindElement(By.XPath("//button[normalize-space()='Onboard']")).Click();
+
         }
     }
     public class EmployeeDetail
@@ -27,17 +36,45 @@ namespace UI_Tests
         public string PhoneNumber { get; set; }
         public string EmploymentType { get; set; }
         public string TaxTerm { get; set; }
-        public string DateOfBirth { get; set; }
-        public EmployeeDetail(string fn, string ln, string job, string mail_id, string pn, string employmentType, string taxTerm, [Optional] string BirthDate)
+         public string ConDate { get; set; }
+        //  public string Gender { get; set; }
+        //public string Address1 { get; set; }
+        //public string Address2 { get; set; }
+        //public string City { get; set; }
+        //public string Zipcode { get; set; }
+
+        //public string Empdate { get; set; }
+        //public string EmpID { get; set; }
+        //public string CurrWorktype { get; set; }
+        //public string Billstatus { get; set; }
+        //public string Wagerate { get; set; }
+        //public string Wagecycle { get; set; }
+        //public string Department { get; set; }
+        //public string Reportingto { get; set; }
+
+
+    public EmployeeDetail(string fn, string ln, string job, string mail_id,  string pn, string employmentType, string taxTerm,string condate="19/01/2020")
         {
             FirstName = fn;
             LastName = ln;
             Email = mail_id;
             Designation = job;
             PhoneNumber = pn;
-            EmploymentType = employmentType;
+         EmploymentType = employmentType;
             TaxTerm = taxTerm;
-            DateOfBirth = BirthDate;
+            ConDate = condate;
+         //   DateOfBirth = BirthDate;
+         //   Address2 = address2;
+            //City = city;
+            //Zipcode = zipcode;
+            //Empdate = empdate;
+            //EmpID = empID;
+            //CurrWorktype = currWorktype;
+            //Billstatus = billstatus;
+            //Wagerate = wagerate;
+            //Wagecycle = wagecycle;
+            //Department = department;
+            //Reportingto = reportingto;
         }
     }
 }
