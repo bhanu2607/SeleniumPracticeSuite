@@ -16,15 +16,22 @@ namespace UI_Tests
         [Test]
         public void AnswerTheQuiz_Automation()
         {
-           
+
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string downloadPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", "..", "..", "Downloads"));
             AnswerTheQuizHelper answerHelper = new AnswerTheQuizHelper();
 
             AnswerTheQuizPage obj = new AnswerTheQuizPage(driver);
 
-            string[] recordedAnswers = obj.GetRecordedAnswers();
+            Answer[] recordedAnswers = obj.GetRecordedAnswers();
 
+            var initialFileCount = Directory.GetFiles(downloadPath).Length;
             answerHelper.AnswerTheQuiz(driver, recordedAnswers);
-
+            var currentFileCount = initialFileCount;
+            while (currentFileCount <= initialFileCount)
+            {
+                currentFileCount = Directory.GetFiles(downloadPath).Length;
+            }
 
 
 
@@ -33,9 +40,14 @@ namespace UI_Tests
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string downloadPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", "..", "..", "Downloads"));
+            Directory.CreateDirectory(downloadPath);
+            options.AddUserProfilePreference("download.default_directory", downloadPath);
         }
 
         [TearDown]

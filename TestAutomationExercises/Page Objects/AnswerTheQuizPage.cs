@@ -5,7 +5,27 @@ using SeleniumExtras.PageObjects;
 
 namespace UI_Tests
 {
-    public class AnswerTheQuizPage { 
+    public class Data
+    {
+        public string PlayerName { get; set; }
+
+        public int Score { get; set; }
+
+        public string TimeTaken { get; set; }
+
+        public Answer[] RecordedAnswers { get; set; }
+
+    }
+
+    public class Answer
+    {
+        public string question { get; set; }
+        public string selectedAnswer { get; set; }
+        public string correctAnswer { get; set; }
+        public bool isCorrect { get; set; }
+    }
+    public class AnswerTheQuizPage
+    {
         IWebDriver driver;
         public AnswerTheQuizPage(IWebDriver driver)
         {
@@ -15,14 +35,8 @@ namespace UI_Tests
             //use this for elements with [FindsBy()] method which would not require "driver.FindElement" to be written for each element instead the elements will be initialized when the constructor is called
             #endregion
         }
-        public class Answer
-        {
-            public string question { get; set; }
-            public string selectedAnswer { get; set; }
-            public string correctAnswer { get; set; }
-            public bool isCorrect { get; set; }
-        }
-        public string[] GetRecordedAnswers()
+
+        public Answer[] GetRecordedAnswers()
         {
 
             var currentDirectory = Directory.GetCurrentDirectory();
@@ -31,18 +45,22 @@ namespace UI_Tests
             string json = File.ReadAllText(filePath);
 
             // Deserialize the JSON data into a dictionary
-            var data = JsonConvert.DeserializeObject<Dictionary<string, List<object>>>(json);
+            var data = JsonConvert.DeserializeObject<Data>(json);
 
-            var recorderAnswersArray = JArray.FromObject(data["recordedAnswers"]);
-            RecordedAnswers = recorderAnswersArray.ToObject<List<Answer>>();
+            return data.RecordedAnswers;
+/*
+            var recorderAnswersArray = JArray.FromObject(data["recordedAnswers"]);*/
+            //var RecordedAnswers = recorderAnswersArray.ToObject<List<Answer>>();
 
-            return new string[]
-            {
-        "Selenium is a web browser automation tool.",
-        "To launch and interact with web browsers",
-        "IWebDriver driver = new ChromeDriver();",
-        ""
-            };
+            /*            return Answer[] RecordedAnswers ;*/
+
+            /*            return new string[]
+                        {
+                    "Selenium is a web browser automation tool.",
+                    "To launch and interact with web browsers",
+                    "IWebDriver driver = new ChromeDriver();",
+                    ""
+                        };*/
         }
 
 

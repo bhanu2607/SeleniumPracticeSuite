@@ -9,7 +9,7 @@ namespace UI_Tests
 {
     public class AnswerTheQuizHelper
     {
-        public void AnswerTheQuiz(IWebDriver driver, string[] recordedAnwers )
+        public void AnswerTheQuiz(IWebDriver driver, Answer[] recordedAnwers)
         {
             AnswerTheQuizPage answerTheQuizPage = new AnswerTheQuizPage(driver);
             Actions actions = new Actions(driver);
@@ -27,9 +27,16 @@ namespace UI_Tests
             // Accept (click OK) on the alert
             alert.Accept();
 
-            foreach (string answer in recordedAnwers)
+            foreach (Answer answer in recordedAnwers)
             {
-                driver.FindElement(By.XPath($"//button[normalize-space()='{answer}']")).Click();
+                if (!answer.correctAnswer.Contains('\''))
+                {
+                    driver.FindElement(By.XPath($"//button[normalize-space()='{answer.correctAnswer}']")).Click();
+                }
+                else
+                {
+                    driver.FindElement(By.XPath($"//button[normalize-space()=\"{answer.correctAnswer}\"]")).Click();
+                }
                 driver.FindElement(By.XPath("//button[normalize-space()='Next']")).Click();
             }
 
@@ -38,9 +45,9 @@ namespace UI_Tests
 
         }
 
-   
 
-        
+
+
 
 
     }
