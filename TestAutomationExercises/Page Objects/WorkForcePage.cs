@@ -15,7 +15,7 @@ namespace UI_Tests
             #endregion
         }
 
-        static CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudaveni", designation: "Developer Intern", email: "rajesh@example1.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C", contractDate: "07/01/2001");;
+        static CandidateDetails detailsObj = new CandidateDetails(firstName: "Rajesh", lastName: "Sudaveni", designation: "Developer Intern", email: "rajesh@example1.com", phoneNumber: "8332839112", employmentType: "Intern", taxTerm: "C2C", contractDate: "07/01/2001");
 
 
         public By  workForceBtn = By.XPath("//a[@href='/app/work-force-new']");
