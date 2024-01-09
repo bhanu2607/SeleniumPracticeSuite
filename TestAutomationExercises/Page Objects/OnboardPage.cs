@@ -38,7 +38,7 @@ namespace UI_Tests
         public By onboardbtn = By.XPath("//button[normalize-space()='Onboard']");
         public By single = By.XPath("//span[normalize-space()='Single']");
         public By successpage = By.XPath("//h3[.='Candidate successfully Onboarded']");
-       public By dashboardbtn=By.XPath("//span[@class='nav-icon ob__Img ob-dashboard__Img']")'
+        public By dashboardbtn = By.XPath("//span[@class='nav-icon ob__Img ob-dashboard__Img']");
 
 
     }
