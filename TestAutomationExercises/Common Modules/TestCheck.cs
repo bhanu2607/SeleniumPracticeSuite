@@ -4,26 +4,31 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Linq.Expressions;
+using UI_Tests;
 
 namespace UI_Tests
+
 {
+
+
     public class TestCheck
     {
-        public void TestPage(IWebDriver driver)
+
+        public void TestCheckMethod(IWebDriver driver)
         {
-            
+
             Actions actions = new Actions(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
 
-            var current_Directory = Directory.GetCurrentDirectory();
-            var file_Path = Path.GetFullPath(Path.Combine(current_Directory, "..", "..", "..", "Test Data", "RandomNameGenerator", "bhanuresult.json"));
 
-            string json1 = File.ReadAllText(file_Path);
 
-            // Deserialize the JSON data into a dictionary
-            var data1 = JsonConvert.DeserializeObject<Dictionary<string, List<object>>>(json1);
-            var correctAnswersArray = JArray.FromObject(data1["recordedAnswers"]);
-            CorrectAnswers = firstNamesArray.ToObject<List<Name>>();
+            AnswerPage object1 = new AnswerPage();
+            Answer[] answers = object1.Returning_answers();
+
+
+
+
 
 
 
@@ -41,20 +46,38 @@ namespace UI_Tests
 
 
             driver.Navigate().GoToUrl(URLs.Exam_link);
-            
-            wait.Until(ExpectedConditions.AlertIsPresent());
-            var test_alert = driver.SwitchTo().Alert();
-            test_alert.SendKeys("bhhajjooii");
-            test_alert.Accept();
 
-            
+
+           retry: try
             {
-                driver.FindElement(By.XPath($"//button[contains(text(),'{}')]")).Click();
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-                driver.FindElement(By.XPath("//button[contains(text(),'Next')]")).Click();
+            wait.Until(ExpectedConditions.AlertIsPresent());
+
+            }
+            catch (WebDriverTimeoutException)
+            {
+                driver.Navigate().Refresh();
+                goto retry;
             }
 
-        }
+            var test_alert = driver.SwitchTo().Alert();
+            test_alert.SendKeys("bhhhhhjooii");
+            test_alert.Accept();
 
+
+            foreach (Answer answer in answers)
+            {
+                if (!answer.CorrectAnswer.Contains('\''))
+                {
+                    driver.FindElement(By.XPath($"//button[normalize-space()='{answer.CorrectAnswer}']")).Click();
+                }
+                else
+                {
+                    driver.FindElement(By.XPath($"//button[normalize-space()=\"{answer.CorrectAnswer}\"]")).Click();
+                }
+                driver.FindElement(By.XPath("//button[normalize-space()='Next']")).Click();
+            }
+        }
     }
 }
+            
+            
