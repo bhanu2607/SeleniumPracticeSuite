@@ -13,11 +13,19 @@ namespace UI_Tests
         {
             AnswerTheQuizPage answerTheQuizPage = new AnswerTheQuizPage(driver);
             Actions actions = new Actions(driver);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
             driver.Navigate().GoToUrl(URLs.Quiz_page_URL);
 
-            wait.Until(ExpectedConditions.AlertIsPresent());
+        Retry: try
+            {
+                wait.Until(ExpectedConditions.AlertIsPresent());
+            }
+            catch (WebDriverTimeoutException)
+            {
+                driver.Navigate().Refresh();
+                goto Retry;
+            }
             // Switch to the alert
             IAlert alert = driver.SwitchTo().Alert();
 

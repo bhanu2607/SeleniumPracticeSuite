@@ -26,12 +26,23 @@ namespace UI_Tests
             Answer[] recordedAnswers = obj.GetRecordedAnswers();
 
             var initialFileCount = Directory.GetFiles(downloadPath).Length;
+
             answerHelper.AnswerTheQuiz(driver, recordedAnswers);
+
             var currentFileCount = initialFileCount;
             while (currentFileCount <= initialFileCount)
             {
                 currentFileCount = Directory.GetFiles(downloadPath).Length;
             }
+            var downloadedFiles = new DirectoryInfo(downloadPath).GetFiles();
+            var firstFile = downloadedFiles.OrderByDescending(x => x.LastWriteTime).FirstOrDefault();
+            while (!firstFile.Name.EndsWith(".json"))
+            {
+                downloadedFiles = new DirectoryInfo(downloadPath).GetFiles();
+                firstFile = downloadedFiles.OrderByDescending(x => x.LastWriteTime).FirstOrDefault();
+            }
+
+
 
 
 
@@ -40,14 +51,14 @@ namespace UI_Tests
         [SetUp]
         public void Setup()
         {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string downloadPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", "..", "..", "Downloads"));
             ChromeOptions options = new ChromeOptions();
+            options.AddUserProfilePreference("download.default_directory", downloadPath);
             driver = new ChromeDriver(options);
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            string currentDirectory = Directory.GetCurrentDirectory();
-            string downloadPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", "..", "..", "Downloads"));
             Directory.CreateDirectory(downloadPath);
-            options.AddUserProfilePreference("download.default_directory", downloadPath);
         }
 
         [TearDown]
