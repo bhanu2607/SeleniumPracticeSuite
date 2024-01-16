@@ -17,7 +17,7 @@ namespace UI_Tests
 
             driver.Navigate().GoToUrl(URLs.quiz_url);
 
-            ReTry: try
+        ReTry: try
             {
                 wait.Until(ExpectedConditions.AlertIsPresent());
             }
@@ -27,25 +27,36 @@ namespace UI_Tests
                 goto ReTry;
             }
 
-            
+
             var alert_win = driver.SwitchTo().Alert();
             alert_win.SendKeys("Divya");
             alert_win.Accept();
-            foreach(Options opt in recordedanswers) 
-            { 
-              if(!opt.correctAnswer.Contains('\''))
+            foreach (Options opt in recordedanswers)
+            {
+                var index = Array.IndexOf(recordedanswers, opt);
+                if (!opt.correctAnswer.Contains('\''))
                 {
-                    driver.FindElement(By.XPath($"//button[normalize-space()='{opt.correctAnswer}']")).Click();
+                    driver.FindElement(By.XPath($"//span[normalize-space()='{opt.correctAnswer}']")).Click();
                 }
                 else
                 {
-                    driver.FindElement(By.XPath($"//button[normalize-space()=\"{opt.correctAnswer}\"]")).Click();
+                    driver.FindElement(By.XPath($"//span[normalize-space()=\"{opt.correctAnswer}\"]")).Click();
+                }
+                if (index==29)
+                {
+                    driver.FindElement(By.XPath("//button[normalize-space()='28']")).Click();//just for checking purpose
+
+                    driver.FindElement(By.XPath("//button[normalize-space()='Submit']")).Click();
+                }
+                else
+                {
+                    driver.FindElement(By.XPath("//button[normalize-space()='Save & Next']")).Click();
+
                 }
 
-                driver.FindElement(By.XPath("//button[normalize-space()='Next']")).Click();
-
-
             }
+
+
 
 
 
