@@ -17,10 +17,10 @@ namespace UI_Tests
             MarksClass marksClassobj = new MarksClass();
             MarksPage markspageobj = new MarksPage(driver);
             Options[] recordedAnswers = markspageobj.GetRecordedanswers();
+            var initialFileCount = Directory.GetFiles(downloadPath).Length;
             marksClassobj.MarksClsmethod(driver, recordedAnswers);
 
 
-            var initialFileCount = Directory.GetFiles(downloadPath).Length;
 
             var currentFileCount = initialFileCount;
 

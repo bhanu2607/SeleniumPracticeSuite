@@ -42,7 +42,7 @@ namespace UI_Tests
                 {
                     driver.FindElement(By.XPath($"//span[normalize-space()=\"{opt.correctAnswer}\"]")).Click();
                 }
-                if (index==29)
+                if (index==recordedanswers.Length-1)
                 {
                     driver.FindElement(By.XPath("//button[normalize-space()='28']")).Click();//just for checking purpose
 
