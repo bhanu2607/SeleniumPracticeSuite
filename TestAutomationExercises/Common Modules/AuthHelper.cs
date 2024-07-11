@@ -21,6 +21,9 @@ namespace UI_Tests
             driver.FindElement(loginPage.inputPassword).SendKeys(password);
             driver.FindElement(loginPage.submitBtn).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(loginPage.signoutBtn));
+
+
+
         }
     }
 }
