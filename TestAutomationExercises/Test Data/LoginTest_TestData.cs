@@ -8,7 +8,7 @@ namespace UI_Tests
 {
     public class LoginTest_TestData
     {
-        public static string Username = "demo@demosupport.tk";
+        public static string Username = "sajjadali@mail.onblick.us";
         public static string Password = "Password@1";
     }
 }
