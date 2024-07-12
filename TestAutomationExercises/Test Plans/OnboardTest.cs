@@ -17,7 +17,7 @@ namespace UI_Tests
 
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
             onboardClass.Onboard(driver, OnboardTest_TestData.employeeDetail);
-            email_check.Emailvalid(driver, "bhanukri@gmail.com");
+            email_check.EmailValid(driver, "bhanukri@gmail.com");
 
 
 

@@ -20,9 +20,10 @@ Alternatively, you can clone within your IDE manually with the same [URL](https:
 The folder structure is subject to change. It is recommended to refer to the latest version of the project for the most up-to-date folder structure. The project's folder structure is organized as follows:
 
 - **Common_Modules**: Contains code organized based on scenarios or test cases for browser interactions.
+- **PageObjects**: Contains classes representing web pages or sections of a web application. Includes locators, elements(and methods) for interacting with page elements. More on POM here - [Page Object model with PageFactory](https://www.softwaretestinghelp.com/page-object-model-pom-with-pagefactory/).
 - **Test Data**: Holds test data or metadata required for running test plans.
 - **Test Plans**: Contains test plans written in a step-wise manner for each scenario or test case.
-
+- **URLs and Environment**: Contains URLs which are used in test plans.
 # Naming Convention
 We shall follow the following naming conventions for the project:
 

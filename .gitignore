@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /rebase_master.sh
+
+#Downloads folder
+/TestAutomationExercises/Downloads

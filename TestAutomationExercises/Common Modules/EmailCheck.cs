@@ -7,30 +7,30 @@ namespace UI_Tests
 {
     public class EmailCheck
     {
-        public void Emailvalid(IWebDriver driver, string email)
+        public void EmailValid(IWebDriver driver, string email)
         {
-            EmailPage Emailpage = new EmailPage(driver);
+            EmailPage emailPage = new EmailPage(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(70));
 
             driver.Navigate().GoToUrl(URLs.Work_Force_URL);
-            wait.Until(ExpectedConditions.ElementToBeClickable(Emailpage.SearchBtn));
+            wait.Until(ExpectedConditions.ElementToBeClickable(emailPage.SearchBtn));
         
-            driver.FindElement(Emailpage.SearchBar).SendKeys(Email_TestData.Email);
-            driver.FindElement(Emailpage.SearchBtn).Click();
+            driver.FindElement(emailPage.SearchBar).SendKeys(Email_TestData.Email);
+            driver.FindElement(emailPage.SearchBtn).Click();
             try
             {
-                driver.FindElement(Emailpage.no_result);
+                driver.FindElement(emailPage.no_result);
             }
             catch (Exception)
             {
 
                 
-                wait.Until(ExpectedConditions.ElementIsVisible(Emailpage.actionsBtn));
-                driver.FindElement(Emailpage.actionsBtn).Click();
-                wait.Until(ExpectedConditions.ElementIsVisible(Emailpage.deleteBtn));
-                driver.FindElement(Emailpage.deleteBtn).Click();
-                wait.Until(ExpectedConditions.ElementIsVisible(Emailpage.deletepopup));
-                driver.FindElement(Emailpage.delete_yes_btn).Click();
+                wait.Until(ExpectedConditions.ElementIsVisible(emailPage.actionsBtn));
+                driver.FindElement(emailPage.actionsBtn).Click();
+                wait.Until(ExpectedConditions.ElementIsVisible(emailPage.deleteBtn));
+                driver.FindElement(emailPage.deleteBtn).Click();
+                wait.Until(ExpectedConditions.ElementIsVisible(emailPage.deletepopup));
+                driver.FindElement(emailPage.delete_yes_btn).Click();
             }
 
 
