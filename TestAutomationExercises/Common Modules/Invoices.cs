@@ -13,7 +13,7 @@ namespace UI_Tests.Common_Modules
 {
     public class InvoicesClass
     {
-        public void Invoices(IWebDriver driver, Invoicedata invoicedata)
+        public void invoicetab(IWebDriver driver, Invoicedata invoicedata)
         {
             InvoicePage invoicepage = new InvoicePage(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
@@ -30,6 +30,21 @@ namespace UI_Tests.Common_Modules
 
 
 
+
+        }
+        public class InvoiceData
+        {
+            public string Invoice_Number { get; set; }
+            public InvoiceData(string IN)
+            {
+                Invoice_Number = IN;
+            }
+}
+
+        
+
         }
     }
-}
+  
+
+

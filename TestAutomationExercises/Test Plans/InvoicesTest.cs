@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UI_Tests.Test_Plans
 {
-    internal class InvoicesTest
+    public class InvoicesTest
     {
+
     }
 }
