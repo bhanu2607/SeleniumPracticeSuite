@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace UI_Tests.Test_Data
 {
-    public class Invoicedata
+    public class InvoiceTest_data
     {
         public static string Invoice_Number = "100";
     }
+   
 }

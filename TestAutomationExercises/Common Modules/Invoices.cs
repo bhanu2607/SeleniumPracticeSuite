@@ -13,7 +13,7 @@ namespace UI_Tests.Common_Modules
 {
     public class InvoicesClass
     {
-        public void invoicetab(IWebDriver driver, Invoicedata invoicedata)
+        public void invoicetab(IWebDriver driver, string invoicedata)
         {
             InvoicePage invoicepage = new InvoicePage(driver);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(40));
@@ -23,7 +23,7 @@ namespace UI_Tests.Common_Modules
             wait.Until(ExpectedConditions.ElementIsVisible(invoicepage.Sync_Data));
             driver.FindElement(invoicepage.Sync_Data).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(invoicepage.Filters_Button));
-            driver.FindElement(invoicepage.Search_Invoice).SendKeys(Invoicedata.Invoice_Number);
+            driver.FindElement(invoicepage.Search_Invoice).SendKeys(InvoiceTest_data.Invoice_Number);
             driver.FindElement(invoicepage.ClickOn_Search);
 
 
