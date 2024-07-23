@@ -16,7 +16,7 @@ namespace UI_Tests.Page_Objects
         }
         public By Elipsis_Btn = By.XPath("//span[@class='nav-icon ob__Img ob-more__Img']");
         public By Timesheet_Menu = By.XPath("//a[@href='/app/employer-timesheets']");
-        public By Add_Timesheet = By.XPath("//button[normalize-space()='Add Timesheet']");
+        public By Add_Timesheet = By.XPath("//li[@class='legend-li']//button[@type='button']");
         public By Select_Emp = By.XPath("//span[@id='select2-x8hq-container']");
         public By Search_Emp = By.XPath("//input[@role='searchbox']");
         public By Select_Datefrom = By.XPath("//input[@id='dateFrom']");

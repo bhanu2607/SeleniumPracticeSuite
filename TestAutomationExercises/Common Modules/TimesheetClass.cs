@@ -20,7 +20,7 @@ namespace UI_Tests.Common_Modules
             //driver.FindElement(timesheetpage.Elipsis_Btn).Click();
             //wait.Until(ExpectedConditions.InvisibilityOfElementLocated(timesheetpage.Timesheet_Menu));
           //  driver.FindElement(timesheetpage.Timesheet_Menu).Click();
-            wait.Until(ExpectedConditions.ElementIsVisible(timesheetpage.Add_Timesheet));
+            wait.Until(ExpectedConditions.ElementIsVisible(timesheetpage.Add_Timesheet)); 
             driver.FindElement(timesheetpage.Add_Timesheet).Click();
             driver.FindElement(timesheetpage.Search_Emp).SendKeys(timesheet_detail.Emp_name);
             driver.FindElement(timesheetpage.Search_Emp).SendKeys(Keys.Enter);
