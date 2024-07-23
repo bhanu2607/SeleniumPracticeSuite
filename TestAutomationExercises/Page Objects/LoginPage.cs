@@ -16,7 +16,7 @@ namespace UI_Tests
         public By inputEmail = By.XPath("//input[contains(@placeholder,'Email')]");
         public By inputPassword = By.XPath("//input[contains(@placeholder,'Password')]");
         public By submitBtn = By.XPath("//button[normalize-space()='Sign in']");
-        public By signoutBtn = By.XPath("//label[normalize-space()='Sign Out']");
+        public By onboardcand = By.XPath("//a[normalize-space()='Onboard candidate(s)']");
 
     }
 }

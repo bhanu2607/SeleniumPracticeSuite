@@ -20,7 +20,7 @@ namespace UI_Tests
             driver.FindElement(loginPage.inputEmail).SendKeys(username);
             driver.FindElement(loginPage.inputPassword).SendKeys(password);
             driver.FindElement(loginPage.submitBtn).Click();
-            wait.Until(ExpectedConditions.ElementIsVisible(loginPage.signoutBtn));
+            wait.Until(ExpectedConditions.ElementIsVisible(loginPage.onboardcand));
         }
         
     }
