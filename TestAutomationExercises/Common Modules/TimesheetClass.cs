@@ -20,12 +20,17 @@ namespace UI_Tests.Common_Modules
 
             try
             {
+                string url = "https://demohr.onblick.com/app/employer-timesheets?pageNo=1";
+                driver.Navigate().GoToUrl(url);
+
+                wait.Until(ExpectedConditions.InvisibilityOfElementLocated(timesheetpage.Onblick_logo));
+
                 // Wait for the Add Timesheet button to be clickable
-                IWebElement addTimesheetButton = wait.Until(ExpectedConditions.ElementToBeClickable(timesheetpage.Add_Timesheet));
+                //IWebElement addTimesheetButton = wait.Until(ExpectedConditions.ElementToBeClickable(timesheetpage.Add_Timesheet));
 
                 // Click the Add Timesheet button
-                addTimesheetButton.Click();
-
+                //wait.Until(ExpectedConditions.ElementToBeClickable(timesheetpage.Add_Timesheet));
+                driver.FindElement(timesheetpage.Add_Timesheet).Click();
                 // Wait for the Search Employee input field to be visible and interactable
                 wait.Until(ExpectedConditions.ElementIsVisible(timesheetpage.Search_Emp));
 
@@ -64,12 +69,12 @@ namespace UI_Tests.Common_Modules
             catch (WebDriverTimeoutException ex)
             {
                 Console.WriteLine("Timeout occurred while waiting for element: " + ex.Message);
-                // Handle the timeout exception as needed
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception occurred: " + ex.Message);
-                // Handle any other exceptions
+                
             }
 
 

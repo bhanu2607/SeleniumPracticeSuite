@@ -28,8 +28,7 @@ namespace UI_Tests.Test_Plans
             authHelper.ValidLogin(driver, LoginTest_TestData.Username, LoginTest_TestData.Password);
 
             //Navigate to timesheet page
-            string url = "https://demohr.onblick.com/app/employer-timesheets?pageNo=1";
-            driver.Navigate().GoToUrl(url);
+          
 
             // Navigate to timesheet tab and perform action
             timesheetClass.Add_Timesheet(driver, Timesheet_Data.timesheet_Detail);
