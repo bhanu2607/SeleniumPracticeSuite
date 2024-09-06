@@ -9,6 +9,6 @@ namespace UI_Tests
     public class LoginTest_TestData
     {
         public static string Username = "demo@demosupport.tk";
-        public static string Password = "Password@1";
+        public static string Password = "Account@1";
     }
 }
